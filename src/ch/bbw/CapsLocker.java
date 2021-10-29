@@ -9,7 +9,7 @@ import java.io.IOException;
 public class CapsLocker {
 
 	public static void main(String[] args) {
-		File file = new File("resources/output.txt");
+		File file = new File("resources/wiesel.txt");
 
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(file));

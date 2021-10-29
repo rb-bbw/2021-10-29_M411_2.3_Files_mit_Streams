@@ -15,9 +15,9 @@ public class OutputExample {
 
 		try {
 			BufferedReader in = new BufferedReader( new InputStreamReader(System.in, StandardCharsets.UTF_8) );
-
 			PrintWriter out = new PrintWriter(new FileWriter(file));
 			String s;
+
 			System.out.print("Enter text");
 			System.out.println("[Type ctrl-d to stop.]:");
 
