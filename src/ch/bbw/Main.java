@@ -6,12 +6,13 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Main {
 
     public static void main(String[] args) {
-        task_2_2_1();
+        task_2_2_2();
     }
     private static void task_2_2_1() {
         try (Stream<String> lines = new BufferedReader(
@@ -20,6 +21,29 @@ public class Main {
             lines.forEach(l -> {
                 String[] values = l.split(";");
 
+                int year = LocalDate.now().getYear();
+                int age = year - Integer.parseInt(values[2]);
+                System.out.println(values[1] + " " + values[0] + " " + age);
+            });
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private static void task_2_2_2() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("First name:");
+        String input = in.nextLine();
+
+        try (Stream<String> lines = new BufferedReader(
+                new FileReader("resources/personen.txt")).lines()) {
+
+            lines.filter( s -> {
+                String[] values = s.split(";");
+                return values[1].contains(input);
+            }).forEach(l -> {
+                String[] values = l.split(";");
                 int year = LocalDate.now().getYear();
                 int age = year - Integer.parseInt(values[2]);
                 System.out.println(values[1] + " " + values[0] + " " + age);
